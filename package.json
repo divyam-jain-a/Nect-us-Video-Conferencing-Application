@@ -1,0 +1,20 @@
+{
+  "name": "e-commerce-app",
+  "version": "1.0.0",
+  "description": "Video chating App with 2 people",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "watch": "npx watchify ./Public/main.js -o ./Public/bundle.js"
+  },
+  "author": "Divyam Jain",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "simple-peer": "^9.11.0",
+    "socket.io": "^4.2.0"
+  },
+  "devDependencies": {
+    "watchify": "^4.0.0"
+  }
+}
