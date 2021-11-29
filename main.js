@@ -2,7 +2,8 @@ let Peer = require('simple-peer')
 let socket = io()
 const video = document.querySelector('video')
 const filter = document.querySelector('#filter')
-const checkboxTheme = document.querySelector('#theme')
+const muteAudio = document.querySelector('#mute')
+const stopVid = document.querySelector('#stopVid')
 let client = {}
 let currentFilter
 //get stream
@@ -86,7 +87,25 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
             })
 
         }
+stopVid.addEventListener('click', () => {
+    const videotrack = stream.getTracks().find(track => track.kind === 'video');
+    if (videotrack.enabled){
+        videotrack.enabled = false;
+        stopVid.style.backgroundColor = "darkred"}
+    else
+    {videotrack.enabled = true;
+    stopVid.style.backgroundColor = "rgba(0, 0, 0, 0.74)"}
+})
 
+    muteAudio.addEventListener('click', () => {
+    const audiotrack = stream.getTracks().find(track => track.kind === 'audio');
+    if (audiotrack.enabled){
+        audiotrack.enabled = false;
+        muteAudio.style.backgroundColor = "darkred"}
+    else
+    {audiotrack.enabled = true;
+    muteAudio.style.backgroundColor = "rgba(0, 0, 0, 0.74)"}
+})
         function SessionActive() {
             document.write('Session Active. Please come back later')
         }
@@ -114,22 +133,7 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
     })
     .catch(err => document.write(err))
 
-checkboxTheme.addEventListener('click', () => {
-    if (checkboxTheme.checked == true) {
-        document.body.style.backgroundColor = '#212529'
-        if (document.querySelector('#muteText')) {
-            document.querySelector('#muteText').style.color = "#fff"
-        }
 
-    }
-    else {
-        document.body.style.backgroundColor = '#fff'
-        if (document.querySelector('#muteText')) {
-            document.querySelector('#muteText').style.color = "#212529"
-        }
-    }
-}
-)
 
 function CreateDiv() {
     let div = document.createElement('div')
@@ -137,6 +141,5 @@ function CreateDiv() {
     div.id = "muteText"
     div.innerHTML = "Click to Mute/Unmute"
     document.querySelector('#peerDiv').appendChild(div)
-    if (checkboxTheme.checked == true)
-        document.querySelector('#muteText').style.color = "#fff"
+
 }
