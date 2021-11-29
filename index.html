@@ -1,68 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-    
-    <title>Video Streaming App</title>
-    <html>
+<html>
 
-        <head>
-            <title>Video Chat App</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-            <link href="main.css" rel="stylesheet">
-        </head>
-        
-        <body style="background-color:rgb(0, 0, 0);">
-            <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a class="navbar-brand" href="#"><h1>NECT-Us</h1></a>
-                </nav>
-                <div class="row h-10 w-100">
-                    <div class="col">
-                        <select id="filter" class="w-100 bg-dark text-light ml-2 mt-2 select font-weight-bold border">
-                            <option value="none">Normal</option>
-                            <option value="grayscale(100%)">B & W</option>
-                            <option value="sepia(100%)">Old School</option>
-                            <option value="contrast(150%)">Lumination</option>
-                            <option value="blur(20px)">Hidden Mist</option>
-                            <option value="invert(100%)">Dracula</option>
-                            <option value="hue-rotate(180deg">X-men Beast</option>
-                            <option value="saturate(25)">Super Saiyan God</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <div class="float-right mt-3">
-                            <input class="form-check-input" type="checkbox" id="theme">
-                            <label class="form-check-label" for="theme">
-                                Dark Theme
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row h-90 w-100">
-                    <div class="col-12 col-sm-6 d-flex justify-content-center">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <video class="embed-responsive-item" muted></video>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 d-flex justify-content-center">
-                        <div id="peerDiv" class="embed-responsive embed-responsive-16by9">
-                        </div>
-                    </div>
+<head>
+    <title>Video Chat App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+</head>
+
+<body background="3213160.jpg">  
+   
+    <div class="container-fluid" >
+        <h1>NECT-Us  </h1>
+       
+        <div class="row h-80 w-100">
+            <div class="col-12 col-sm-6 d-flex justify-content-center">
+                <div id="outer" class="embed-responsive embed-responsive-16by9">
+                    <video class="embed-responsive-item" muted ></video>
                 </div>
             </div>
-            <br><br>
-            <div class="container">
-            <div class="text-center">
-                <button type="button" class="btn btn-danger btn-lg w-45 ">End Call</button>
-                <button type="button" class="btn btn-secondary btn-lg w-45 ">Options</button>
-            </div></div>
-            <script src="/socket.io/socket.io.js"></script>
-            <script src="bundle.js"></script> 
-        </body>
-        
-        </html>
+            <div class="col-12 col-sm-6 d-flex justify-content-around">
+                <div id="peerDiv" class="embed-responsive embed-responsive-16by9">
+                </div>
+            </div>
+        </div><br>
+        <div class="row w-100">
+            <div id="options" class="row w-50">&nbsp;
+                <button id="mute" >Mute Audio</button>&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button id="stopVid" class="justify-content-center">Stop Video</button></div>
+        <div id="optionss" class="row w-50"> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select id="filter">
+            <option value="none">Normal</option>
+            <option value="grayscale(100%)">B & W</option>
+            <option value="sepia(100%)">Old School</option>
+            <option value="contrast(150%)">Lumination</option>
+            <option value="blur(20px)">Hidden Mist</option>
+            <option value="invert(100%)">Dracula</option>
+            <option value="hue-rotate(180deg">X-men Beast</option>
+            <option value="saturate(25)">Super Saiyan God</option>
+        </select></div>
+    </div>
+ 
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="bundle.js"></script>
+</body>
+
+</html>
